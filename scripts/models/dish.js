@@ -1,4 +1,4 @@
-import { formatToCurrency } from "@utils/format-to-currency";
+import { formatToCurrency } from "../utils/format-to-currency";
 
 export class Dish {
 

@@ -1,4 +1,4 @@
-import { Dish } from "@models/dish.js";
+import { Dish } from "./dish.js";
 
 export class Restaurant {
 
@@ -59,7 +59,7 @@ export class Restaurant {
             const categoryDishes = dishes.filter((dish) => dish.category === categoryName);
 
             return {
-                category: categoryName,
+                name: categoryName,
                 dishes: categoryDishes
             };
 
