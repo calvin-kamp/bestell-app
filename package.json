@@ -6,7 +6,8 @@
   "author": "Calvin Kamp",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel ./*.html",
+    "build": "parcel build ./*.html"
   },
   "dependencies": {
     "swiper": "^12.0.3"

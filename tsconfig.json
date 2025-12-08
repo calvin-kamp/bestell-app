@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "jsx": "preserve",
+        "paths": {
+            "@styles/*" : ["./styles/*"],
+            "@scripts/*" : ["./scripts/*"],
+            "@data/*" : ["./scripts/data/*"],
+            "@utils/*" : ["./scripts/utils/*"],
+            "@models/*" : ["./scripts/models/*"],
+            "@stores/*" : ["./scripts/stores/*"],
+            "@templates/*" : ["./scripts/templates/*"]
+        }
+    }
+}
