@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "jsx": "preserve",
+
+    "paths": {
+      "@styles/*": ["./styles/*"],
+      "@scripts/*": ["./scripts/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["dist"]
+}
