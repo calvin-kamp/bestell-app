@@ -1,0 +1,12 @@
+/* -------------------------------------------------------- */
+/*                       GLOBAL STYLES                      */
+/* -------------------------------------------------------- */
+
+@use './base/reset';
+@use './base/colors';
+@use './base/reboot';
+
+@use './components/cart.scss';
+@use './components/dish.scss';
+@use './components/menu.scss';
+@use './components/restaurant.scss';

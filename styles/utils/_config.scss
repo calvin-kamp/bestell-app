@@ -1,0 +1,81 @@
+/* -------------------------------------------------------- */
+/*                        VARIABLES                         */
+/* -------------------------------------------------------- */
+
+$breakpoints: (
+    md:         						768px,
+    lg:         						1280px
+);
+
+$colors: (
+	light: (
+
+		white:              #FFFFFF,
+		black:              #000000,
+
+		border:             #8c8c8c,
+
+		overlay:            rgba(140, 140, 140, 0.5),
+
+		
+		primary:            #69108F,
+		primary-hover:      #7C26A1,
+
+		ui-success:         #0C5F24,
+		ui-warning:         #8F5D20,
+		ui-error:           #A60629,
+		ui-information:     #125588,
+
+		body-font:          #1A1A18,
+		body-background:    #F2F2F2,
+
+		code-font:          #222222,
+		code-background:    #F8F8F2 
+
+	)
+);
+
+
+$font-size-mobile:			                16px;
+$font-size-tablet:			                16px;
+$font-size-desktop:			                16px;
+
+$font-size-h1-mobile:			            32px;
+$font-size-h2-mobile:			            26px;
+$font-size-h3-mobile:			            24px;
+
+$font-size-h1-tablet:			            42px;
+$font-size-h2-tablet:			            30px;
+$font-size-h3-tablet:			            24px;
+
+$font-size-h1-desktop:		                58px;
+$font-size-h2-desktop:		                36px;
+$font-size-h3-desktop:		                30px;
+
+$font-letter-spacing:                       normal;
+
+$font-weight-thin:			                100;
+$font-weight-extralight:			        200;
+$font-weight-light:			                300;
+$font-weight-normal:			            400;
+$font-weight-medium:		                500;
+$font-weight-semibold:		              	600;
+$font-weight-bold:			                700;
+$font-weight-extrabold:			            800;
+$font-weight-black:			                900;
+
+$font-family-body:		                    "Barlow", Arial, sans-serif;
+$font-family-headline:		                "Poppins", Arial, sans-serif;
+$font-family-monospace:		                Consolas, 'Lucida Console', Monaco, monospace;
+
+$z-index-1:                                 100;
+$z-index-2:                                 200;
+$z-index-3:                                 300;
+$z-index-4:                                 400;
+$z-index-5:                                 500;
+$z-index-6:                                 600;
+$z-index-7:                                 700;
+$z-index-8:                                 800;
+$z-index-9:                                 900;
+
+$transition-time:							0.4s;
