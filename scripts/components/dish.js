@@ -1,4 +1,5 @@
 import { cartStore } from "../stores/cart";
+import { renderCart } from "../page.js";
 
 export const dish = {
     vars: {
@@ -28,15 +29,15 @@ export const dish = {
     addEventTrigger($dishComponents) {
 
         for(const $dish of $dishComponents) {
-
+            
             const $addToCart = $dish.querySelector(this.vars.queries.addToCart);
-
+            
             $addToCart.addEventListener('click', () => {
 
                 const dishId = $addToCart.getAttribute(this.vars.attributes.addToCart);
                 
                 cartStore.addToCart(dishId);
-                
+                renderCart();
 
             })
 
