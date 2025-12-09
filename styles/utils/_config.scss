@@ -3,8 +3,8 @@
 /* -------------------------------------------------------- */
 
 $breakpoints: (
-    md:         						768px,
-    lg:         						1280px
+    md:         						48rem,
+    lg:         						80rem
 );
 
 $colors: (
@@ -13,24 +13,15 @@ $colors: (
 		white:              #FFFFFF,
 		black:              #000000,
 
-		border:             #8c8c8c,
-
-		overlay:            rgba(140, 140, 140, 0.5),
-
+		grey:             	#3f3d39,
 		
-		primary:            #69108F,
+		primary:            #FF8000,
 		primary-hover:      #7C26A1,
 
-		ui-success:         #0C5F24,
-		ui-warning:         #8F5D20,
-		ui-error:           #A60629,
-		ui-information:     #125588,
+		body-font:          #ffffff,
+		body-background:    #1c1a17,
 
-		body-font:          #1A1A18,
-		body-background:    #F2F2F2,
-
-		code-font:          #222222,
-		code-background:    #F8F8F2 
+		card-background:	#2b2a28
 
 	)
 );
@@ -42,7 +33,7 @@ $font-size-desktop:			                16px;
 
 $font-size-h1-mobile:			            32px;
 $font-size-h2-mobile:			            26px;
-$font-size-h3-mobile:			            24px;
+$font-size-h3-mobile:			            22px;
 
 $font-size-h1-tablet:			            42px;
 $font-size-h2-tablet:			            30px;

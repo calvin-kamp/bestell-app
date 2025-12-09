@@ -100,9 +100,6 @@ a, .link {
 
 button, .button {
     display: inline-block;
-    padding: 0 32px;
-    min-width: 240px;
-    height: 56px;
     border: 1px solid transparent;
     cursor: pointer;
     text-decoration: none;
@@ -162,4 +159,13 @@ svg {
 /* Unordered Lists */
 ul {
     list-style: none;
+}
+
+main {
+    @include manual-breakpoint(1024px) {
+        display: grid;
+        grid-template-columns: 1fr 344px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:"restaurant cart""menus      cart";
+    }
 }
