@@ -11,9 +11,9 @@ export const dishTemplate = (dish) => {
                     ${dish.formatedPrice}
                 </strong>
 
-                <p class="dish__description">
+                <span class="dish__description">
                     ${dish.description}
-                </p>
+                </span>
             </button>
         </article>
     `
