@@ -1,9 +1,9 @@
 import { cartItemTemplate } from './cart-item-template';
 import { formatToCurrency } from '../utils/format-to-currency'
 
-export const cartTemplate = (cart) => {
+export const cartTemplate = (cart, layout = 'aside') => {
     return `
-        <aside class="cart" data-js="cart">
+        <${layout} class="cart cart--${layout}" data-js="cart">
             <div class="cart__wrapper">
                 <h2 class="cart__title">
                     Warenkorb
@@ -67,7 +67,6 @@ export const cartTemplate = (cart) => {
                     </strong>
                 </div>
             </div>
-        </aside>
+        </${layout}>
     `
-
 }
