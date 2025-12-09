@@ -1,94 +1,72 @@
 import { cartItemTemplate } from './cart-item-template';
+import { formatToCurrency } from '../utils/format-to-currency'
 
-const cart = {
-    cartItems: [
-        {
-            id: "001",
-            name: "test",
-            quantity: 2,
-            price: 13.99,
-            formatedTotalPrice: "27,97€"
-        },
-        {
-            id: "002",
-            name: "test",
-            quantity: 2,
-            price: 13.99,
-            formatedTotalPrice: "27,97€"
-        },
-    ],
-    itemsTotal: "27,97€",
-    noDeliveryFee: false,
-    deliveryFee: 3.99,
-    total: 2
-}
-
-export const cartTemplate = () => {
-
+export const cartTemplate = (cart) => {
     return `
         <aside class="cart" data-js="cart">
-            <h2 class="cart__title">
-                Warenkorb
-            </h2>
+            <div class="cart__wrapper">
+                <h2 class="cart__title">
+                    Warenkorb
+                </h2>
 
-            <fieldset aria-label="Art der Bestellung" class="cart__delivery-type-switch">
-                <input type="radio" id="deliveryType_delivery" name="deliveryType">
-                <label for="deliveryType_delivery">
+                <fieldset aria-label="Art der Bestellung" class="cart__delivery-type-switch">
+                    <div>
+                        <input type="radio" id="deliveryType_delivery" name="deliveryType">
+                        <label for="deliveryType_delivery">
+                            <span>
+                                Lieferung
+                            </span>
+                        </label>
+
+                        <input type="radio" id="deliveryType_pickUp" name="deliveryType">
+                        <label for="deliveryType_pickUp">
+                            <span>
+                                Abholung
+                            </span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <ul class="cart__list">
+                    ${cart.cartItems.map(cartItem => (
+                        `
+                            <li class="cart__item">
+                                ${cartItemTemplate(cartItem)}
+                            </li>
+                        `
+                    )).join('')}
+                </ul>
+
+                <div class="cart__summary">
                     <span>
-                        Lieferung
+                        Zwischensumme
                     </span>
-                </label>
 
-                <input type="radio" id="deliveryType_pickUp" name="deliveryType">
-                <label for="deliveryType_pickUp">
                     <span>
-                        Abholung
+                        ${formatToCurrency(cart.itemsTotal)}
                     </span>
-                </label>
-            </fieldset>
 
-            <ul class="cart__list">
-                ${cart.cartItems.map(cartItem => (
+                    ${cart.deliveryFee > 0 ? 
                     `
-                        <li class="cart__item">
-                            ${cartItemTemplate(cartItem)}
-                        </li>
+                        <span>Liefergebühr</span>
+                        <span>${formatToCurrency(cart.deliveryFee)}</span>
+                    ` : 
                     `
-                ))}
-            </ul>
+                        <span>Liefergebühr</span>
+                        <span>0 €</span>
+                    `}
+                </div>
 
-            <div class="cart__summary">
-                <span>
-                    Zwischensumme
-                </span>
+                <div class="cart__total">
+                    <strong>
+                        Gesamt
+                    </strong>
 
-                <span>
-                    ${cart.itemsTotal}
-                </span>
-
-                ${!cart.noDeliveryFee && (
-                    `
-                        <span>
-                            Liefergebühr
-                        </span>
-
-                        <span>
-                            ${cart.deliveryFee}
-                        </span>
-                    `
-                )}
+                    <strong>
+                        ${formatToCurrency(cart.total)}
+                    </strong>
+                </div>
             </div>
-
-            <div class="cart__total">
-                <strong>
-                    Gesamt
-                </strong>
-
-                <strong>
-                    ${cart.total}
-                </strong>
-            </div>
-
         </aside>
     `
 
