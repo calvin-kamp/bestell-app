@@ -20,7 +20,7 @@
 
 // Adds a media query for a specified custom minimum width
 @mixin manual-breakpoint($breakpoint-min-width) {
-	@media screen and (min-width: get-rem($breakpoint-min-width)) {
+	@media screen and (min-width: $breakpoint-min-width) {
 		@content;
 	}
 }
