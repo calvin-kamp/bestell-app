@@ -121,10 +121,10 @@ export const cartStore = {
         this.save();
     },
 
-    save() {
+    save(value = cart) {
 
         this.recalculateTotals();
-        localStorageHelper.setItem('cart', cart);
+        localStorageHelper.setItem('cart', value);
 
     },
 
@@ -165,6 +165,16 @@ export const cartStore = {
 
         cart.deliveryFee = baseDeliveryFee;
 
-    }
+    },
+
+    clearCart() {
+
+        cart.cartItems = [];
+        cart.priceTotal = 0;
+        cart.deliveryFee = 0;
+
+        this.save();
+
+    },
 
 }
