@@ -3,8 +3,14 @@ import { formatToCurrency } from '../utils/format-to-currency'
 
 export const cartTemplate = (cart, layout = 'aside') => {
     return `
-        <${layout} class="cart cart--${layout}" data-js="cart">
+        <${layout} class="cart cart--${layout}" data-js="cart" ${layout === 'dialog' ? 'data-cart-modal' : ''}>
             <div class="cart__wrapper">
+                ${layout === 'dialog' ? (
+                    `
+                        <button class="cart__close button--primary" data-modal-close-cart-button>X</button>
+                    `
+                ) : ('')}
+
                 <h2 class="cart__title">
                     Warenkorb
                 </h2>
@@ -66,6 +72,10 @@ export const cartTemplate = (cart, layout = 'aside') => {
                         ${formatToCurrency(cart.total)}
                     </strong>
                 </div>
+
+                <button class="cart__order button--primary" data-cart-order>
+                    Bestellen
+                </button>
             </div>
         </${layout}>
     `
