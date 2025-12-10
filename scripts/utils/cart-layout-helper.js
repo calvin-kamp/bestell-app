@@ -51,15 +51,7 @@ export const cartLayoutHelper  = {
 
         this.vars.bigBreakpoint = isBigBreakpoint;
 
-        if(isBigBreakpoint) {
-
-            renderCart(this.vars.cartStore, 'aside');
-
-        } else {
-
-            renderCart(this.vars.cartStore, 'dialog');
-
-        }
+        renderCart();
 
     }
 
