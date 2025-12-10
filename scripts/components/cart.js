@@ -5,7 +5,8 @@ export const cart = {
 
     vars: {
         queries: {
-            component:                  '*[data-js=cart]'
+            component:                  '*[data-js=cart]',
+            orderBtn:                   '*[data-cart-order]'
         }
     },
 
@@ -25,6 +26,7 @@ export const cart = {
 
         const $delivery = document.getElementById('deliveryType_delivery');
         const $pickup = document.getElementById('deliveryType_pickUp');
+        const $order = document.querySelector(this.vars.queries.orderBtn);
 
         const { deliveryType } = cartStore.getCartData();
 
@@ -50,6 +52,13 @@ export const cart = {
                 renderCart();
             }
             
+        })
+
+        $order.addEventListener('click', () => {
+
+            cartStore.clearCart();
+            renderCart();
+
         })
 
     }
