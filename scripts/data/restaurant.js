@@ -1,7 +1,7 @@
 export const restaurantData  = {
     name: "Surfer Boy Pizza",
     description: "Try before you deny!",
-    bannerImage: "./assets/images/banner/",
+    bannerImage: "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg",
     rating: 4.8,
     offersDelivery: true,
     delivery: {
@@ -67,7 +67,7 @@ export const restaurantData  = {
         { 
             id: "008",
             name: "Deep Dish Doom",
-            description: "Extra dicker Boden, extra viel Käse",
+            description: "Extra dicker Boden, extra Käse",
             price: 15.5,
             category: "Pizza" },
         { 
@@ -98,7 +98,7 @@ export const restaurantData  = {
         { 
             id: "013",
             name: "Chicken Crunch Burger",
-            description: "Knuspriges Hähnchen, Salat, Mayo",
+            description: "Hähnchen, Salat, Mayo",
             price: 9.5,
             category: "Burger"
         },
@@ -112,7 +112,7 @@ export const restaurantData  = {
         { 
             id: "015",
             name: "Veggie Garden Bowl",
-            description: "Gemischter Salat mit Oliven & Feta",
+            description: "Gemischter Salat mit Oliven und Feta",
             price: 7.9,
             category: "Salat"
         },
@@ -126,7 +126,7 @@ export const restaurantData  = {
         { 
             id: "017",
             name: "Cinnamon Sugar Bites",
-            description: "Süße Teigbällchen mit Zimt & Zucker",
+            description: "Süße Teigbällchen mit Zimt und Zucker",
             price: 4.9,
             category: "Dessert"
         },
@@ -140,7 +140,7 @@ export const restaurantData  = {
         { 
             id: "019",
             name: "Surf Energy Drink",
-            description: "Energydrink mit Zitrusgeschmack",
+            description: "Energydrink Zitrusgeschmack",
             price: 3.9,
             category: "Getränk"
         },

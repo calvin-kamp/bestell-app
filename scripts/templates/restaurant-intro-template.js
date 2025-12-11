@@ -4,7 +4,7 @@ export const restaurantIntroTemplate = (restaurant) => {
         <section class="restaurant">
             <figure class="restaurant__banner">
                 <picture>
-                    <img src="https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg" alt="${restaurant.name}-${restaurant.description}">
+                    <img src="${restaurant.bannerImage}" alt="${restaurant.name}-${restaurant.description}">
                 </picture>
             </figure>
 
