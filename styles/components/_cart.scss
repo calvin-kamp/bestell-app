@@ -1,1 +1,172 @@
 @use "../utils" as *;
+
+.cart {
+    padding: 32px;
+    background-color: var(--color-card-background);
+    
+    @include manual-breakpoint(1024px) {
+        position: relative;
+        grid-area: cart;
+        padding: 32px 16px 0;
+    }
+
+    &--aside {
+        @include manual-breakpoint(1024px) {
+            position: relative;
+            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, .04), 0px 2px 12px 0px rgba(0, 0, 0, .12), 0px 2px 6px 2px rgba(0, 0, 0, .08), inset 0px 0.5px 0px 0px hsla(0, 0%, 100%, .05), inset 0px 0px 0.5px 0px hsla(0, 0%, 100%, .05);
+        }
+    
+        &::after {
+            @include manual-breakpoint(1024px) {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 344px;
+                height: 100px;
+                content: "";
+            }
+        }
+    }
+    
+    &--dialog {
+        width: 80%;
+        color: var(--color-body-font);
+        border: none;
+        border-radius: 32px;
+    }
+
+    &__wrapper {
+        @include manual-breakpoint(1024px) {
+            position: fixed;
+            top: 90px;
+            width: calc(344px - 32px);
+            height: 100%;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 32px;
+        right: 32px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: get-rem(20px);
+        font-weight: $font-weight-semibold;
+    }
+    
+    &__title {
+        @include manual-breakpoint(1024px) {
+            text-align: center;
+        }
+    }
+
+    &__list {
+        margin-bottom: 16px;
+    }
+
+    &__item {
+        position: relative;
+        padding: 16px 0;
+
+        &:first-of-type {
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 2px;
+                background-color: var(--color-grey);
+                content: "";
+            }
+        }
+
+        &::after {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-grey);
+            content: "";
+        }
+    }
+
+    &__delivery-type-switch {
+        width: 100%;
+        margin-bottom: 16px;
+
+        > div {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            max-width: 320px;
+            margin: 0 auto;
+            border-radius: 50px;
+            background-color: var(--color-grey);
+
+            @include manual-breakpoint(1024px) {
+                width: 75%;
+                max-width: unset;
+            }
+        }
+
+        label {
+            display: block;
+            padding: 8px 16px;
+            border-radius: 50px;
+        }
+
+        input {
+            display: none;
+
+            &:checked {
+                + label {
+                    background-color: var(--color-card-background);
+                }
+            }
+        }
+    }
+
+    &__summary {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+
+        > span {
+            display: block;
+            width: 50%;
+
+            &:nth-last-of-type(2n + 1) {
+                text-align: right;
+            }
+        }
+    }
+
+    &__total {        
+        display: flex;
+
+        > strong {
+            display: block;
+            width: 50%;
+
+            &:last-of-type {
+                text-align: right;
+            }
+        }
+    }
+
+    &__order {
+        width: 100%;
+        padding: 8px 32px;
+        margin-top: 1rem;
+        border-radius: 50px;
+        font-size: get-rem(20px);
+        font-weight: $font-weight-semibold;
+    }
+
+}

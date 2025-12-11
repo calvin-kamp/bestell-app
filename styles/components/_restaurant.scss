@@ -1,25 +1,79 @@
 @use "../utils" as *;
 
 .restaurant {
+    grid-area: restaurant;
+    margin-bottom: 32px;
 
-    &__baner {
+    &__wrapper {
+        max-width: calc(960px + 24px);
+        padding: 0 12px;
+        margin: 0 auto 32px;
 
+        @include manual-breakpoint(1024px) {
+            max-width: calc(960px + 48px);
+            margin: 0 auto;
+        }
+    }
+
+    &__banner {
+        margin-bottom: 16px;
+        
+        img {
+            max-height: 200px;
+            object-fit: cover;
+
+            @include breakpoint(md) {
+                max-height: 340px;
+            }
+
+            @include manual-breakpoint(1024px) {
+                max-height: 400px;
+            }
+        }
     }
 
     &__name {
-
+        margin-left: 8px;
     }
 
     &__navigation {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 58px;
+        border-radius: 50px;
+        background-color: var(--color-card-background);
 
+        @include manual-breakpoint(600px) {
+            width: max-content;
+            margin: 0 auto;
+        }
+
+        @include manual-breakpoint(1024px) {
+            margin-left: 0;
+        }
     }
-
+    
     &__category-list {
+        height: 40px;
+        padding: 0 24px;
 
+        @include manual-breakpoint(600px) {
+            justify-content: center;
+            width: 100%;
+        }
     }
 
     &__category {
+        display: flex;
+        align-items: center;
+        width: auto;
+        padding: 4px 8px;
+        text-align: center;
 
+        a {
+
+        }
     }
     
 }

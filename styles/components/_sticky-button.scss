@@ -1,0 +1,24 @@
+@use "../utils" as *;
+
+.sticky-button {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 24px 0;
+    background-color: var(--color-card-background);
+
+    @include manual-breakpoint(1024px) {
+        display: none;
+    }
+
+    > button {
+        display: block;
+        margin: 0 auto;
+        padding: 8px 32px;
+        height: 50px;
+        border-radius: 50px;
+        font-size: get-rem(20px);
+        font-weight: $font-weight-semibold;
+    }
+}

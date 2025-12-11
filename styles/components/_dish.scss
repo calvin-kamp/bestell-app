@@ -1,17 +1,55 @@
 @use "../utils" as *;
 
 .dish {
-    
-    &__name {
+    position: relative;
+    height: 100%;
+    padding: 16px;
+    background-color: var(--color-card-background);
+    border-radius: 12px;
+    cursor: pointer;
 
+    &::before {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        width: 24px;
+        height: 24px;
+        margin: 0 1px 1px 0;
+        color: var(--color-primary);
+        font-size: get-rem(24px);
+        line-height: get-rem(20px);
+        text-align: center;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        pointer-events: none;
+        content: "+";
+    }
+
+    > button {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__name {
+        margin-bottom: 8px;
     }
 
     &__price {
-
+        display: block;
+        margin-bottom: 8px;
     }
 
     &__description {
+        display: block;
+        padding-right: 16px;
 
+        @include breakpoint(md) {
+            padding-right: 32px;
+        }
     }
     
+    > button {
+        text-align: left;
+        text-wrap: pretty;
+    }
 }

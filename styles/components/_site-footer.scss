@@ -1,0 +1,12 @@
+@use "../utils" as *;
+
+.site-footer {
+    padding: 12px 0;
+    margin-bottom: 98px;
+    border-top: 1px solid var(--color-grey);
+    text-align: center;
+
+    @include manual-breakpoint(1024px) {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,29 @@
+@use "../utils" as *;
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    background-color: var(--color-card-background);
+
+    @include manual-breakpoint(1024px) {
+        position: relative;
+        justify-content: flex-start;
+    }
+
+    &__logo {
+        @include manual-breakpoint(1024px) {
+            width: 100%;
+            max-width: calc(960px + 48px + 344px);
+            padding: 0 12px;
+            margin: 0 auto;
+        }
+
+        svg {
+            display: block;
+            width: 180px;
+            height: auto;
+        }
+    }
+}
