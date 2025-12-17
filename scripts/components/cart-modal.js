@@ -35,8 +35,6 @@ export const cartModal = {
 
         $orderButton.addEventListener('click', () => {
 
-            console.log('test')
-
             this.close();
 
         })
@@ -91,4 +89,5 @@ export const cartModal = {
         }
 
     }
+
 }

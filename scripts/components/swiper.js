@@ -10,7 +10,8 @@ export const swiper = {
 
         swiperSettings: {
             modules: [Navigation, Pagination],
-            slidesPerView: "auto"
+            slidesPerView: "auto",
+            spaceBetween: 16
         }
 
     },

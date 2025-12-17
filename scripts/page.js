@@ -8,6 +8,7 @@ import { cart as cartScript } from './components/cart.js';
 import { cartItem } from './components/cart-item.js';
 import { swiper } from './components/swiper.js';
 import { cartModal } from './components/cart-modal.js';
+import { updateCartButtonAmount } from './utils/cart-amount-helper.js';
 
 const restaurant = new RestaurantModel(restaurantData);
 
@@ -21,7 +22,7 @@ export const renderPage = () => {
             ${menuTemplate(restaurant.dishesByCategory)}
         </div>
         <div class="sticky-button">
-            <button class="button button--primary" data-modal-open-cart-button>
+            <button class="button button--primary" data-modal-open-cart-button data-cart-item-amount=${cart.itemsAmount}>
                 Warenkorb
             </button>
         </div>
@@ -36,7 +37,7 @@ export const renderCart = () => {
 
     const cart = cartStore.getCartData();
     const $oldCart = document.querySelector('[data-js="cart"]');
-    
+
     if (!$oldCart) {
         return;
     }
@@ -54,6 +55,7 @@ export const renderCart = () => {
     cartItem.init();
     cartScript.init();
     cartModal.init();
+    updateCartButtonAmount();
 
     if (!bigBreakpoint && wasOpen && $newCart && $newCart.showModal) {
         $newCart.showModal();

@@ -46,8 +46,11 @@ export const cartStore = {
         const total = cart.priceTotal + cart.deliveryFee;
         const noDeliveryFee = cart.deliveryFee === 0;
 
+        const itemsAmount = this.getItemsAmount();
+
         return {
             ...cart,
+            itemsAmount,
             itemsTotal,
             deliveryFee,
             total,
@@ -176,5 +179,14 @@ export const cartStore = {
         this.save();
 
     },
+
+    getItemsAmount() {
+
+        return cart.cartItems.reduce((sum, item) => {
+
+            return sum + (Number(item.quantity) || 0);
+
+        }, 0)
+    }
 
 }
