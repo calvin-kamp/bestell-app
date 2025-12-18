@@ -1,5 +1,7 @@
 import { cartStore } from '../stores/cart.js';
 import { renderCart } from "../page.js";
+import { restaurantData } from "../data/restaurant.js";
+import { toastOrderSuccess } from '../utils/toast.js';
 
 export const cart = {
 
@@ -83,6 +85,23 @@ export const cart = {
 
         $order.addEventListener('click', () => {
 
+            const deliveryType = cartStore.getDeliveryType();
+            let deliveryMessage = '';
+            let deliveryTime
+
+            if(deliveryType === 'delivery') {
+                
+                deliveryTime = String(restaurantData.delivery.deliveryTimeMinutes);
+                deliveryMessage = `Deine Bestellung ist in ${deliveryTime} minuten bei dir.`;
+
+            } else if(deliveryType === 'pickup') {
+
+                deliveryTime = String(restaurantData.pickUp.pickUpTimeMinutes);
+                deliveryMessage = `Deine Bestellung ist in ${deliveryTime} minuten bereit zur Abholung.`;
+
+            }
+
+            toastOrderSuccess(deliveryMessage)
             cartStore.clearCart();
             renderCart();
             this.checkIfScrollable();

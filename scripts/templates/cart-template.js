@@ -73,7 +73,7 @@ export const cartTemplate = (cart, layout = 'aside') => {
                     </strong>
                 </div>
 
-                <button class="cart__order button--primary" data-cart-order>
+                <button class="cart__order button--primary" ${cart.cartItems?.length > 0 ? '' : 'disabled'} data-cart-order>
                     Bestellen
                 </button>
             </div>

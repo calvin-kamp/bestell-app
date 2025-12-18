@@ -11,13 +11,22 @@ export const cartModal = {
 
     init() {
 
+        const $dialog = document.querySelector(this.vars.queries.component);
+
+        if(!$dialog) {
+            return;
+        }
+
+        this.addEventTrigger();
+        this.getCartItemsAmount();
+
+    },
+
+    addEventTrigger() {
+
         const $openButton = document.querySelector(this.vars.queries.openButton);
         const $closeButton = document.querySelector(this.vars.queries.closeButton);
         const $orderButton = document.querySelector(this.vars.queries.orderButton);
-
-        if(!$openButton) {
-            return;
-        }
 
         $openButton.addEventListener('click', () => {
 

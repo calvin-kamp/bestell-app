@@ -1,5 +1,6 @@
 import { restaurantData } from "../data/restaurant.js";
 import { localStorageHelper } from "../utils/local-storage-helper.js";
+import { toastCartAdded } from "../utils/toast.js";
 
 const cart = {
     cartItems: [],
@@ -81,6 +82,7 @@ export const cartStore = {
             });
         }
 
+        toastCartAdded(`${dishData.name} hinzugefügt`);
         this.save();
     },
 
@@ -122,6 +124,13 @@ export const cartStore = {
 
         cart.deliveryType = type;
         this.save();
+
+    },
+
+    getDeliveryType() {
+
+        return cart.deliveryType;
+
     },
 
     save(value = cart) {
