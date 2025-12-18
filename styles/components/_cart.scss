@@ -7,40 +7,49 @@
     @include manual-breakpoint(1024px) {
         position: relative;
         grid-area: cart;
-        padding: 32px 16px 0;
-    }
-
-    &--aside {
-        @include manual-breakpoint(1024px) {
-            position: relative;
-            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, .04), 0px 2px 12px 0px rgba(0, 0, 0, .12), 0px 2px 6px 2px rgba(0, 0, 0, .08), inset 0px 0.5px 0px 0px hsla(0, 0%, 100%, .05), inset 0px 0px 0.5px 0px hsla(0, 0%, 100%, .05);
-        }
-    
-        &::after {
-            @include manual-breakpoint(1024px) {
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: 344px;
-                height: 100px;
-                content: "";
-            }
-        }
+        padding: 32px 16px;
     }
     
     &--dialog {
-        width: 80%;
-        color: var(--color-body-font);
-        border: none;
+        width: calc(100vw - 92px);
+        height: 75%;
+        color: var(--color-body-font); 
+        border: none; 
         border-radius: 32px;
     }
 
+    &--list-scrollable {
+        
+        @include manual-breakpoint(1024px) {
+            --scrollbar-width: var(--cart-scrollbar-width, 0px);
+
+            .cart {
+                &__list {
+                    padding-right: var(--scrollbar-width);
+                    margin-right: calc(var(--scrollbar-width) * -1);
+                    scrollbar-width: thin;
+                }
+
+                &__title,
+                &__delivery-type-switch,
+                &__summary,
+                &__total {
+                    padding-right: var(--scrollbar-width);
+                }
+            }
+        }
+    }
+
     &__wrapper {
+        display: flex; 
+        flex-direction: column; 
+        height: 100%;
+
         @include manual-breakpoint(1024px) {
             position: fixed;
-            top: 90px;
-            width: calc(344px - 32px);
-            height: 100%;
+            top: 122px;
+            width: calc(360px - 32px);
+            height: calc(100vh - 203px);
         }
     }
 
@@ -62,7 +71,10 @@
     }
 
     &__list {
-        margin-bottom: 16px;
+        height: 65%; 
+        margin-bottom: 16px; 
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     &__item {
@@ -73,9 +85,8 @@
             &::before {
                 position: absolute;
                 top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100%;
+                left: 0;
+                right: 0;
                 height: 2px;
                 background-color: var(--color-grey);
                 content: "";
@@ -84,10 +95,9 @@
 
         &::after {
             position: absolute;
-            left: 50%;
+            left: 0;
+            right: 0;
             bottom: 0;
-            transform: translateX(-50%);
-            width: 100%;
             height: 2px;
             background-color: var(--color-grey);
             content: "";
@@ -135,7 +145,7 @@
     &__summary {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 16px;
+        margin: auto 0 16px;
 
         > span {
             display: block;

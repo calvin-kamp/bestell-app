@@ -60,10 +60,6 @@ h3 {
     @include breakpoint(md) {
         font-size: $font-size-h3-tablet;
     }
-
-    @include breakpoint(lg) {
-        font-size: $font-size-h3-desktop;
-    }
 }
 
 
@@ -136,10 +132,14 @@ ul {
 }
 
 main {
+    min-height: calc(100vh - 139px);
+
     @include manual-breakpoint(1024px) {
         display: grid;
-        grid-template-columns: 1fr 344px;
+        grid-template-columns: 1fr 360px;
         grid-template-rows: auto 1fr;
-        grid-template-areas:"restaurant cart""menus      cart";
+        grid-template-areas:
+            "restaurant cart"
+            "menus      cart";
     }
 }

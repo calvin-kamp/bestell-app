@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     height: 90px;
-    background-color: var(--color-card-background);
+    background-color: var(--color-body-background);
 
     @include manual-breakpoint(1024px) {
         position: relative;

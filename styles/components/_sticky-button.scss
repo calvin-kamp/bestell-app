@@ -20,5 +20,13 @@
         border-radius: 50px;
         font-size: get-rem(20px);
         font-weight: $font-weight-semibold;
+
+        &::before {
+            content: " (" attr(data-cart-item-amount) ")";
+
+            @include manual-breakpoint(1024px) {
+                content: none;
+            }
+        }
     }
 }
