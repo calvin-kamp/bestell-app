@@ -2,9 +2,9 @@
 
 .cart {
     padding: 32px;
-    background-color: var(--color-card-background);
+    background-color: var(--color-dark-grey);
     
-    @include manual-breakpoint(1024px) {
+    @include breakpoint(lg) {
         position: relative;
         grid-area: cart;
         padding: 32px 16px;
@@ -20,7 +20,7 @@
 
     &--list-scrollable {
         
-        @include manual-breakpoint(1024px) {
+        @include breakpoint(lg) {
             --scrollbar-width: var(--cart-scrollbar-width, 0px);
 
             .cart {
@@ -45,7 +45,7 @@
         flex-direction: column; 
         height: 100%;
 
-        @include manual-breakpoint(1024px) {
+        @include breakpoint(lg) {
             position: fixed;
             top: 122px;
             width: calc(360px - 32px);
@@ -65,7 +65,7 @@
     }
     
     &__title {
-        @include manual-breakpoint(1024px) {
+        @include breakpoint(lg) {
             text-align: center;
         }
     }
@@ -119,7 +119,7 @@
             border-radius: 50px;
             background-color: var(--color-grey);
 
-            @include manual-breakpoint(1024px) {
+            @include breakpoint(lg) {
                 width: 75%;
                 max-width: unset;
             }
@@ -136,7 +136,7 @@
 
             &:checked {
                 + label {
-                    background-color: var(--color-card-background);
+                    background-color: var(--color-dark-grey);
                 }
             }
         }

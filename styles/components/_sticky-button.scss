@@ -6,9 +6,9 @@
     right: 0;
     bottom: 0;
     padding: 24px 0;
-    background-color: var(--color-card-background);
+    background-color: var(--color-dark-grey);
 
-    @include manual-breakpoint(1024px) {
+    @include breakpoint(lg) {
         display: none;
     }
 
@@ -24,7 +24,7 @@
         &::before {
             content: " (" attr(data-cart-item-amount) ")";
 
-            @include manual-breakpoint(1024px) {
+            @include breakpoint(lg) {
                 content: none;
             }
         }

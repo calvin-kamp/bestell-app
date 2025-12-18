@@ -7,13 +7,13 @@
     height: 90px;
     background-color: var(--color-body-background);
 
-    @include manual-breakpoint(1024px) {
+    @include breakpoint(lg) {
         position: relative;
         justify-content: flex-start;
     }
 
     &__logo {
-        @include manual-breakpoint(1024px) {
+        @include breakpoint(lg) {
             width: 100%;
             max-width: calc(960px + 48px + 344px);
             padding: 0 12px;

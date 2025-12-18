@@ -107,6 +107,13 @@ button, .button {
             }
         }
     }
+
+    &[disabled] {
+        opacity: 0.75;
+        background-color: var(--color-body-background);
+        border-color: var(--color-body-background);
+        color: var(--color-body-font);
+    }
 }
 
 /* Images */
@@ -134,7 +141,7 @@ ul {
 main {
     min-height: calc(100vh - 139px);
 
-    @include manual-breakpoint(1024px) {
+    @include breakpoint(lg) {
         display: grid;
         grid-template-columns: 1fr 360px;
         grid-template-rows: auto 1fr;

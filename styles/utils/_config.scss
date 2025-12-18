@@ -4,24 +4,27 @@
 
 $breakpoints: (
     md:         						768px,
-    lg:         						1280px
+    lg:         						1024px
 );
 
 $colors: (
 	light: (
 
 		white:              #FFFFFF,
-		black:              #000000,
+		black:              #1c1a17,
 
 		grey:             	#3f3d39,
+		dark-grey:			#2b2a28,
 		
 		primary:            #FF8000,
 		primary-hover:      #ae5603,
 
+		ui-success:			#008000,
+		ui-success-hover: 	#006400,
+
 		body-font:          #ffffff,
 		body-background:    #1c1a17,
 
-		card-background:	#2b2a28
 
 	)
 );

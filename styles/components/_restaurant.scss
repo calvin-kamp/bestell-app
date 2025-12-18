@@ -9,7 +9,7 @@
         padding: 0 12px;
         margin: 0 auto 32px;
 
-        @include manual-breakpoint(1024px) {
+        @include breakpoint(lg) {
             max-width: calc(960px + 48px);
             margin: 0 auto;
         }
@@ -26,7 +26,7 @@
                 max-height: 340px;
             }
 
-            @include manual-breakpoint(1024px) {
+            @include breakpoint(lg) {
                 max-height: 400px;
             }
         }
@@ -43,14 +43,14 @@
         height: 58px;
         padding: 0 24px;
         border-radius: 50px;
-        background-color: var(--color-card-background);
+        background-color: var(--color-dark-grey);
 
         @include manual-breakpoint(600px) {
             width: max-content;
             margin: 0 auto;
         }
 
-        @include manual-breakpoint(1024px) {
+        @include breakpoint(lg) {
             margin-left: 0;
         }
     }
