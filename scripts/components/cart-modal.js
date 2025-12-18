@@ -18,7 +18,6 @@ export const cartModal = {
         }
 
         this.addEventTrigger();
-        this.getCartItemsAmount();
 
     },
 
