@@ -6,7 +6,14 @@ export const cart = {
     vars: {
         queries: {
             component:                  '*[data-js=cart]',
+            cartList:                   '*[data-cart-list]',
+            cartItem:                   '*[data-cart-item]',
             orderBtn:                   '*[data-cart-order]'
+        },
+
+        classes: {
+            cartListScrollable:         'cart__list--scrollable',
+            cartHasScrollableList:      'cart--list-scrollable'
         }
     },
 
@@ -19,6 +26,24 @@ export const cart = {
         }
 
         this.addEventTrigger();
+        this.checkIfScrollable();
+        this.attachGlobalListeners();
+
+    },
+
+    attachGlobalListeners() {
+
+        if(this.vars.listenersAttached) {
+            return;
+        }
+
+        this.vars.listenersAttached = true;
+
+        window.addEventListener('resize', () => {
+            
+            this.checkIfScrollable();
+        
+        })
 
     },
 
@@ -41,6 +66,7 @@ export const cart = {
             if($delivery.checked) {
                 cartStore.setDeliveryType('delivery');
                 renderCart();
+                this.checkIfScrollable();
             }
             
         })
@@ -50,6 +76,7 @@ export const cart = {
             if($pickup.checked) {
                 cartStore.setDeliveryType('pickup');
                 renderCart();
+                this.checkIfScrollable();
             }
             
         })
@@ -58,6 +85,31 @@ export const cart = {
 
             cartStore.clearCart();
             renderCart();
+            this.checkIfScrollable();
+
+        })
+
+    },
+
+    checkIfScrollable() {
+
+        const $cart = document.querySelector(this.vars.queries.component);
+        const $list = document.querySelector(this.vars.queries.cartList);
+        
+        if(!$cart || !$list) {
+            return;
+        }
+
+        requestAnimationFrame(() => {
+
+            const epsilon = 1;
+            const scrollable = $list.scrollHeight > ($list.clientHeight + epsilon);
+
+            $cart.classList.toggle(this.vars.classes.cartHasScrollableList, scrollable);
+            $list.classList.toggle(this.vars.classes.cartListScrollable, scrollable);
+
+            const sbw = scrollable ? ($list.offsetWidth - $list.clientWidth) : 0;
+            $cart.style.setProperty('--cart-scrollbar-width', `${sbw}px`);
 
         })
 

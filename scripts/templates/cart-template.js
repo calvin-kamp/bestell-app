@@ -33,7 +33,7 @@ export const cartTemplate = (cart, layout = 'aside') => {
                     </div>
                 </fieldset>
 
-                <ul class="cart__list">
+                <ul class="cart__list" data-cart-list>
                     ${cart.cartItems.map(cartItem => (
                         `
                             <li class="cart__item">
