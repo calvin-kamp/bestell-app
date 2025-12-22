@@ -1,101 +1,88 @@
 export const cartModal = {
-
     vars: {
         queries: {
-            component:              '*[data-cart-modal]',
-            openButton:             '*[data-modal-open-cart-button]',
-            closeButton:            '*[data-modal-close-cart-button]',
-            orderButton:            '*[data-cart-order]',
-        }
+            component: '*[data-cart-modal]',
+            openButton: '*[data-modal-open-cart-button]',
+            closeButton: '*[data-modal-close-cart-button]',
+            orderButton: '*[data-cart-order]',
+        },
     },
 
     init() {
+        const $dialog = document.querySelector(this.vars.queries.component)
 
-        const $dialog = document.querySelector(this.vars.queries.component);
-
-        if(!$dialog) {
-            return;
+        if (!$dialog) {
+            return
         }
 
-        this.addEventTrigger();
-
+        this.addEventTrigger()
     },
 
     addEventTrigger() {
-
-        const $openButton = document.querySelector(this.vars.queries.openButton);
-        const $closeButton = document.querySelector(this.vars.queries.closeButton);
-        const $orderButton = document.querySelector(this.vars.queries.orderButton);
+        const $openButton = document.querySelector(this.vars.queries.openButton)
+        const $closeButton = document.querySelector(this.vars.queries.closeButton)
+        const $orderButton = document.querySelector(this.vars.queries.orderButton)
 
         $openButton.addEventListener('click', () => {
-
-            this.open();
-
+            this.open()
         })
 
-        if($closeButton) {
+        if ($closeButton) {
             $closeButton.addEventListener('click', () => {
-
-                this.close();
-
+                this.close()
             })
         }
 
         $orderButton.addEventListener('click', () => {
-
-            this.close();
-
+            this.close()
         })
-
     },
 
     getDialog() {
+        const $dialog = document.querySelector(this.vars.queries.component)
 
-        const $dialog = document.querySelector(this.vars.queries.component);
-
-        if(!$dialog || !($dialog instanceof HTMLDialogElement)) {
-            return null;
+        if (!$dialog || !($dialog instanceof HTMLDialogElement)) {
+            return null
         }
 
-        if(!$dialog.isConnected) {
-            return null;
+        if (!$dialog.isConnected) {
+            return null
         }
 
-        return $dialog;
-
+        return $dialog
     },
 
     open() {
+        const $dialog = this.getDialog()
 
-        const $dialog = this.getDialog();
-
-        if(!$dialog) {
-            return;
+        if (!$dialog) {
+            return
         }
 
-        if(!$dialog.open) {
+        if (!$dialog.open) {
+            const $body = document.body
 
-            $dialog.showModal();
+            $body.style.overflow = 'hidden'
+            $body.style.height = '100vh'
 
+            $dialog.showModal()
         }
     },
 
     close() {
+        const $dialog = this.getDialog()
 
-        const $dialog = this.getDialog();
-
-        if(!$dialog) {
-
-            return;
-
+        if (!$dialog) {
+            return
         }
 
-        if($dialog.open) {
+        if ($dialog.open) {
+            const $body = document.body
 
-            $dialog.close();
+            $body.style.overflow = ''
+            $body.style.height = ''
 
+            $dialog.close()
         }
-
-    }
-
+    },
 }
