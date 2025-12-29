@@ -1,4 +1,4 @@
-@use "../utils" as *;
+@use '../utils' as *;
 
 .restaurant {
     grid-area: restaurant;
@@ -16,8 +16,32 @@
     }
 
     &__banner {
-        margin-bottom: 16px;
-        
+        position: relative;
+        margin-bottom: 96px;
+
+        @include breakpoint(md) {
+            margin-bottom: 128px;
+        }
+
+        &::after {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 50%);
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            background-image: url('../public/images/heh.png');
+            background-size: cover;
+            object-fit: cover;
+            content: '';
+
+            @include breakpoint(md) {
+                width: 192px;
+                height: 192px;
+            }
+        }
+
         img {
             max-height: 200px;
             object-fit: cover;
@@ -54,7 +78,7 @@
             margin-left: 0;
         }
     }
-    
+
     &__category-list {
         height: 40px;
 
@@ -71,5 +95,4 @@
         padding: 4px 0;
         text-align: center;
     }
-    
 }
